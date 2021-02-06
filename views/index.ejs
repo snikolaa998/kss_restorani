@@ -1,0 +1,33 @@
+<%- include('./partials/header.ejs') %>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="bg-primary d-flex justify-content-center flex-column align-items-center pt-5 pb-5 text-white">
+                <h1 class="mt-5 display-4">Pronađite svoj restoran!</h1>
+                <p class="mb-5 text-center">Dobro došli na sajt gde možete pronaći najkvalitetnije restorane.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <% restaurants.forEach(restaurant => { %>
+        <div class="col-4">
+            <div class="card text-center mt-5">
+                <div class="card-header">
+                    <%= restaurant.radno_vreme %>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><%= restaurant.ime %></h5>
+                  <a href="/restaurant/single/<%= restaurant._id %> " class="btn btn-primary btn-sm">View more</a>
+                </div>
+                <div class="card-footer text-muted">
+                    <%= restaurant.lokacija %>
+                </div>
+              </div>
+        </div>
+        <% }) %> 
+
+    </div>
+</div>
+<%- include('./partials/footer.ejs') %>

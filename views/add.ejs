@@ -1,0 +1,43 @@
+<%- include('./partials/header.ejs') %>
+<div class="container  mt-5">
+    <div class="row">
+        <div class="col-6">
+            <div class="bg-light p-2 text-center rounded-3 mb-4">
+                <h6 class="mb-0 text-uppercase">Dodaj restoran</h6>
+            </div>
+            <form action="/restaurant/favorite" method="post">
+                <div class="mb-3">
+                    <label class="form-label">Ime</label>
+                    <input type="text" class="form-control" placeholder="Pleasure" name="ime">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Lokacija</label>
+                    <input type="text" class="form-control" placeholder="Nis" name="lokacija">
+                </div>
+                <div class="mb-3">
+                    <label  class="form-label">Opis</label>
+                    <textarea class="form-control" rows="3" name="opis"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100" >Dodaj restoran</button>
+            </form>
+        </div>
+        <div class="col-6">
+            <div class="bg-light p-2 text-center rounded-3 mb-4">
+                <h6 class="mb-0 text-uppercase">Poslednje dodat</h6>
+            </div>
+            <div class="card text-center">
+                <div class="card-header">
+                     <%= lastRestaurant[0].ime %>  
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title display-6"> <%= lastRestaurant[0].opis %>  </h5>
+                  
+                </div>
+                <div class="card-footer text-muted">
+                    <%= lastRestaurant[0].lokacija %>  
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+<%- include('./partials/footer.ejs') %>
